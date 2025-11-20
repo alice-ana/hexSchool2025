@@ -6,54 +6,100 @@
     <link rel="apple-touch-icon" href="./icon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./icon.png" />
     <!--  放入這三行結束 -->
+    
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding-top: 25vh;
-        max-width: fit-content;
-        margin: auto;
+        .calculator {
+        width: fit-content;
+        margin: 25vh auto;
+        padding: 24px;
+        background: #ffffff;
+        border-radius: 18px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        font-family: "Noto Sans TC", sans-serif;
+        color: #333;
+        }
+
+        .title {
+        text-align: center;
         font-size: xx-large;
-      }
-      h2 {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .result {
+        font-weight: 700;
+        margin-bottom: 20px;
+        }
+
+        .label {
+        font-size: xx-large;
+        margin-bottom: 6px;
+        display: block;
+        color: #444;
+        }
+
+        .input {
+        width: 100%;
+        padding: 10px;
+        font-size: xx-large;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        }
+
+        .btn {
+        width: 100%;
+        padding: 12px;
         margin-top: 20px;
-        padding: 15px;
-        background: #f5f5f5;
-        border-radius: 8px;
-      }
-      input[type="date"] {
-        padding: 8px;
-        font-size: x-large;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-      }
-      button {
-        padding: 8px 86px;
-        border: 1px solid #0055cc;
-        background: white;
-        cursor: pointer;
-        border-radius: 6px;
         font-size: xx-large;
-      }
-      button:hover {
-        background: #eef5ff;
-      }
-    </style>
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(160deg, #6a5af9, #8f7efc);
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+        }
+
+        .btn:hover {
+        opacity: 0.9;
+        }
+
+        .notes {
+        font-size: 13px;
+        color: #777;
+        text-align: left;
+        line-height: 1.5;
+        margin-top: 14px;
+        }
+
+        .result {
+        margin-top: 20px;
+        padding: 16px;
+        background: #ffe7dd;
+        font-size: 15px;
+        border-radius: 12px;
+        border-left: 6px solid #ff8b67;
+        line-height: 1.6;
+        }
+    </style>    
+
   </head>
 
   <body>
-    <h2>🐶 妙麗歲數計算機</h2>
+    <div class="calculator">
+        <div class="title">
+            <img src="🐶" alt="" class="dog-icon">
+            🐶 妙麗歲數計算機
+        </div>
 
-    <label>狗狗的出生日期：</label><br />
-    <input type="date" id="dob" /><br /><br />
+        <label class="label">狗狗的出生日期：</label>
+        <input type="date" id="dob" class="input">
 
-    <button onclick="calc()">開始計算</button>
+        <button class="btn" onclick="calc()">開始計算</button>
 
-    <div id="result" class="result" style="display: none"></div>
+        <div id="notes" class="notes">
+            ※ 以 Royal Canin 年齡對照表為基礎  
+            ※ 實際歲數依狗狗體型與個體差異可能不同
+        </div>
+
+        <div id="result" class="result" style="display:none;"></div>
+    </div>
 
     <script>
       function calc() {
